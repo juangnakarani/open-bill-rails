@@ -1,5 +1,6 @@
 class ProductController < ApplicationController
   def index
-    @products = Product.all
+    @products = Product.paginate(page: params[:page])
+
   end
 end

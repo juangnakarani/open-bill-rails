@@ -7,26 +7,29 @@
         <th>Created</th>
         <th>Modified</th>
     </tr>
+    <% @products.each do |p| %>
     <tr>
-        <% @products.each do |p| %>
-            <td>
-                <%= p.id %>
-            </td>
-            <td>
-                <%= p.name %>
-            </td>
-            <td>
-                <%= p.price %>
-            </td>
-            <td>
-                <%= p.qty %>
-            </td>
-            <td>
-                <%= p.created_at %>
-            </td>
-            <td>
-                <%= p.updated_at %>
-            </td>
-        <% end %>
+        <td>
+            <%= p.id %>
+        </td>
+        <td>
+            <%= p.name %>
+        </td>
+        <td>
+            <%= p.price %>
+        </td>
+        <td>
+            <%= p.qty %>
+        </td>
+        <td>
+            <%= p.created_at %>
+        </td>
+        <td>
+            <%= p.updated_at %>
+        </td>
     </tr>
+    <% end %>
+
 </table>
+
+<%= will_paginate @products %>
