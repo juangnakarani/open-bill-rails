@@ -1,4 +1,5 @@
 class ProductController < ApplicationController
+  include AnotherModule
   def index
     #@products = Product.paginate(page: params[:page])
     page = params[:page]
@@ -13,5 +14,8 @@ class ProductController < ApplicationController
     @products = Product.limit(limit).offset(offset)
 
     puts "@products-> #{@products}"
+    last = (Product.count / limit).ceil
+    puts "last #{last}"
+    will_do_pagination(page, last)
   end
 end
